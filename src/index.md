@@ -3,7 +3,7 @@ layout: page
 title: Posts
 ---
 
-<ul class="max-w-lg mx-auto">
+<ul class="max-w-lg mx-auto text-slate-800 ">
   <% collections.posts.resources.each do |post| %>
     <li class="hover:bg-slate-100 " >
       <a href="<%= post.relative_url %>"

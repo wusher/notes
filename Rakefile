@@ -1,4 +1,5 @@
 require "bridgetown"
+require 'pry'
 
 Bridgetown.load_tasks
 
@@ -38,6 +39,51 @@ namespace :frontend do
   rescue Interrupt
   end
 end
+
+class PostRender 
+  def initialize(title:, tags: "" )
+    @title = title
+    @tags = tags
+  end
+
+  def tags 
+    @tags.downcase.gsub(/\s+/, " ")
+  end
+
+  def date 
+    Time.now.strftime("%Y-%m-%d")
+  end
+
+  def render 
+    @tempalte = File.read("templates/new_post.md")
+    ERB.new(@tempalte).result(binding)
+  end
+end
+
+task :post do 
+  STDOUT.puts "Enter post title: [today i learned]"
+  input_title = STDIN.gets.strip 
+  if input_title.size < 1 
+    input_title = "today i learned"
+  end
+  puts "Title: #{input_title}"
+  file_title = input_title.gsub(/\s+/, '-').downcase 
+  title = Time.now.strftime("%Y-%m-%d") + "_#{file_title}.md"
+  puts "Filename: #{title}"
+  puts '-----'
+
+  post_path = "src/_posts/#{title}"
+  if !File.exist?(post_path)
+    STDOUT.puts "Enter tags: []"
+    input_tags = STDIN.gets.strip 
+    File.open(post_path, "w") do |f|
+      f << PostRender.new(title: input_title, tags: input_tags).render
+    end
+    `git add #{post_path}`
+  end
+  `code #{post_path}`
+end
+
 
 #
 # Add your own Rake tasks here! You can use `environment` as a prerequisite
