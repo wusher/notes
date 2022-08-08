@@ -1,5 +1,4 @@
 require "bridgetown"
-require 'pry'
 
 Bridgetown.load_tasks
 
