@@ -6,3 +6,12 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+
+.tag_badge { 
+  @apply inline-flex items-center align-text-top px-2.5 py-0.5 rounded-lg text-xs font-medium;
+  @apply bg-sky-100 text-slate-700;
+}
+.tag_badge.tag_lg { 
+  @apply text-base;
+}

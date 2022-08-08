@@ -3,6 +3,7 @@ layout: post
 title:  "Your First Post on Bridgetown"
 date:   2022-08-07 19:04:57 -0700
 categories: updates
+tags: one two three
 ---
 
 
