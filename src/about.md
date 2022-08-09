@@ -4,4 +4,6 @@ title: About
 ---
 
 
-I write code. This is where I keep my notes. 
+I write code. 
+
+Also, this is where I keep my notes. 

@@ -1,6 +1,6 @@
 ---
 layout: page
-title: Posts
+title: Cheat Sheets
 ---
 
 <ul class="max-w-lg mx-auto text-slate-800 ">

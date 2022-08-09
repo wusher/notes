@@ -11,11 +11,15 @@ build: ## build the production version
 
 
 clean: ## clean the project 
+	bundle exec bridgetown clean 
 	yarn clean
+
 
 setup: ## setup dependencies 
 	bundle install 
 	yarn install 
+
+
 
 clobber: ## remove all installed packaged and builds 
 	bundle exec bridgetown clean 

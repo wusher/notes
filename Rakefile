@@ -40,9 +40,10 @@ namespace :frontend do
 end
 
 class PostRender 
-  def initialize(title:, tags: "" )
+  def initialize(title:, tags: "" ,type: nil)
     @title = title
     @tags = tags
+    @type = type 
   end
 
   def tags 
@@ -54,8 +55,14 @@ class PostRender
   end
 
   def render 
-    @tempalte = File.read("templates/new_post.md")
-    ERB.new(@tempalte).result(binding)
+
+    if @type == :cheat
+    @template = File.read("templates/cheatsheet.md")
+    else 
+    @template = File.read("templates/new_post.md")
+    end
+    
+    ERB.new(@template).result(binding)
   end
 end
 
@@ -77,6 +84,30 @@ task :post do
     input_tags = STDIN.gets.strip 
     File.open(post_path, "w") do |f|
       f << PostRender.new(title: input_title, tags: input_tags).render
+    end
+    `git add #{post_path}`
+  end
+  `code #{post_path}`
+end
+
+task :cheat do 
+  STDOUT.puts "Enter the cheat sheet subject: [notes]"
+  input_title = STDIN.gets.strip 
+  if input_title.size < 1 
+    input_title = "NOTES"
+  end
+  puts "Title: #{input_title}"
+  file_title = input_title.gsub(/\s+/, '-').downcase 
+  title = "0000-00-00_cheatsheet_#{file_title}.md"
+  puts "Filename: #{title}"
+  puts '-----'
+
+  post_path = "src/_posts/#{title}"
+  if !File.exist?(post_path)
+    STDOUT.puts "Enter tags: []"
+    input_tags = STDIN.gets.strip 
+    File.open(post_path, "w") do |f|
+      f << PostRender.new(title: input_title, tags: input_tags, type: :cheat).render
     end
     `git add #{post_path}`
   end
