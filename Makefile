@@ -25,3 +25,9 @@ clobber: ## remove all installed packaged and builds
 	bundle exec bridgetown clean 
 	rm -rf output 
 	rm -rf node_modules 
+
+
+publish: 
+	git add src/_posts
+	git commit -m "publishing new post"
+	git push origin main
