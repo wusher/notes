@@ -7,7 +7,7 @@ start: ## Start the dev server
 	bin/bridgetown start 
 
 build: ## build the production version 
-	BRIDGETOWN_ENV=production yarn deploy
+	BRIDGETOWN_ENV=production bundle exec bridgetown build
 
 
 clean: ## clean the project 
