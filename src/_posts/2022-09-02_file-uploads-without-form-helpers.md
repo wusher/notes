@@ -12,15 +12,15 @@ When uploading files without using the form helper `form.file_field`, you have t
 Discovered in [API Docs](https://api.rubyonrails.org/classes/ActionView/Helpers/FormTagHelper.html#method-i-file_field_tag)
 
 ```erb 
-  <%= form_with(model: @company), multipart: true) do |form| %>
+  < %= form_with(model: @company), multipart: true) do |form| %>
 
     -- When using:  --
     <input type="file" name="company[logo]" />
     -- OR --
-    <%= file_field_tag "company[logo]" %>
+    < %= file_field_tag "company[logo]" %>
 
-    <%= form.submit %>
-  <% end %>
+    < %= form.submit %>
+  < % end %>
 ```
 
 
