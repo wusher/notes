@@ -14,6 +14,9 @@ tags: rails puma
 * puma 5.6.1
 * Rails 7.0.2
 * macos 12.4 m1 
+
+
+
 #### Issue 
 
 I kept getting broken images when generating variants locally. I found the error below in my rails logs. 
