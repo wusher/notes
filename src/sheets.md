@@ -4,7 +4,7 @@ title: Cheat Sheets
 ---
 
 <ul class="max-w-lg mx-auto text-slate-800 ">
-  <% collections.posts.resources.sort_by(&:date).select{|x| !x.data.categories.include?("cheatsheet") }.reverse.each_with_index do |post, idx| %>
+  <% collections.posts.resources.sort_by(&:date).select{|x| x.data.categories.include?("cheatsheet") }.reverse.each_with_index do |post, idx| %>
     <li class="hover:bg-slate-100 <%= idx == 0 ? 'bg-yellow-100 rounded-xl' : '' %> " >
       <a href="<%= post.relative_url %>"
           class="p-2 flex text-center w-full  block"
