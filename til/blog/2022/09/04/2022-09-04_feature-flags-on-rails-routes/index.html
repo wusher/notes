@@ -1,0 +1,100 @@
+<!doctype html>
+<html lang="en ">
+  <head>
+    <meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Feature Flags On Rails Routes | My Notes</title>
+
+<meta name="description" content="My Notes" />
+
+<link rel="stylesheet" href="/notes/_bridgetown/static/index.TWGBWOKL.css" />
+<script src="/notes/_bridgetown/static/index.OFZUQMLF.js" defer></script>
+<script type="module">let lastmod = 0
+function startReloadConnection() {
+  const evtSource = new EventSource("/notes/_bridgetown/live_reload")
+  evtSource.onmessage = event => {
+    if (event.data == "reloaded!") {
+      location.reload()
+    } else {
+      const newmod = Number(event.data)
+      if (lastmod > 0 && newmod > 0 && lastmod < newmod) {
+        location.reload()
+      } else {
+        lastmod = newmod
+      }
+    }
+  }
+  evtSource.onerror = event => {
+    if (evtSource.readyState === 2) {
+      // reconnect with new object
+      evtSource.close()
+      console.warn("Live reload: attempting to reconnect in 3 seconds...")
+
+      setTimeout(() => startReloadConnection(), 3000)
+    }
+  }
+}
+setTimeout(() => {
+  startReloadConnection()
+}, 500)
+</script>
+
+  </head>
+  <body class="post  antialiased bg-slate-50/50">
+    <div class="bg-slate-800 text-slate-50 font-medium flex p-4">
+  <h1>
+    <a href="/notes/">
+    My Notes
+    </a>
+  </h1>
+  <div class="grow"></div>
+  <nav>
+    <ul class="flex space-x-4">
+      <li><a href="/notes/">Posts</a></li>
+      <li><a href="/notes/sheets">Cheat-Sheets</a></li>
+      <li><a href="/notes/about">About</a></li>
+    </ul>
+  </nav>
+</div>
+
+    <main>
+      <div class="relative py-4  overflow-hidden">
+  <div class="relative px-4  lg:px-6">
+    <div class="text-lg max-w-prose mx-auto">
+      <h2>
+        <span class="my-12 block text-4xl text-center leading-8 font-extrabold tracking-tight text-slate-700 sm:text-6xl">Feature Flags On Rails Routes</span>
+
+      </h2>
+      <div class="flex justify-center mt-4 space-x-4">
+          <span class="tag_badge tag_lg" >
+          rails
+          </span>
+          <span class="tag_badge tag_lg" >
+          flipper
+          </span>
+      </div>
+    </div>
+    <div class="mt-4 prose prose-sky prose-2xl  mx-auto">
+      <p>Found a <a href="https://twitter.com/julian_rubisch/status/1565244598204645376">tweet</a> explaining how to wrap a rails route with a feature flag.</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">resources</span> <span class="ss">:media</span><span class="p">,</span>
+      <span class="ss">constraints: </span><span class="o">-&gt;</span><span class="p">(</span><span class="n">req</span><span class="p">)</span> <span class="k">do</span>
+                     <span class="n">current_user</span> <span class="o">=</span> <span class="n">req</span><span class="p">.</span><span class="nf">env</span><span class="p">[</span><span class="s2">"warden"</span><span class="p">].</span><span class="nf">user</span><span class="p">(</span><span class="ss">:user</span><span class="p">)</span>
+                     <span class="no">Flipper</span><span class="p">.</span><span class="nf">enabled?</span><span class="p">(</span><span class="ss">:media_uploads</span><span class="p">,</span> <span class="n">current_user</span><span class="p">)</span>
+                   <span class="k">end</span>
+</code></pre></div></div>
+
+<p>Source: https://twitter.com/carbon_noreply/status/1565244390666252288</p>
+
+    </div>
+  </div>
+</div>
+
+    </main>
+
+    <footer>
+  
+</footer>
+
+  </body>
+</html>

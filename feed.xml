@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://bridgetownrb.com/" version="1.1.0">Bridgetown</generator><link href="https://wusher.github.io/notes/feed.xml" rel="self" type="application/atom+xml" /><link href="https://wusher.github.io/notes/" rel="alternate" type="text/html" /><updated>2022-09-06T15:43:33+00:00</updated><id>https://wusher.github.io/notes/feed.xml</id><title type="html">My Notes</title><subtitle>My Notes</subtitle><author><name>wusher</name></author><entry><title type="html">Feature Flags On Rails Routes</title><link href="https://wusher.github.io/notes/til/blog/2022/09/04/2022-09-04_feature-flags-on-rails-routes/" rel="alternate" type="text/html" title="Feature Flags On Rails Routes" /><published>2022-09-04T08:01:01+00:00</published><updated>2022-09-04T08:01:01+00:00</updated><id>repo://posts.collection/_posts/2022-09-04_feature-flags-on-rails-routes.md</id><content type="html" xml:base="https://wusher.github.io/notes/til/blog/2022/09/04/2022-09-04_feature-flags-on-rails-routes/">&lt;p&gt;Found a &lt;a href=&quot;https://twitter.com/julian_rubisch/status/1565244598204645376&quot;&gt;tweet&lt;/a&gt; explaining how to wrap a rails route with a feature flag.&lt;/p&gt;
+
+&lt;div class=&quot;language-ruby highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;resources&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;:media&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+      &lt;span class=&quot;ss&quot;&gt;constraints: &lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&amp;gt;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;req&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;do&lt;/span&gt;
+                     &lt;span class=&quot;n&quot;&gt;current_user&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;req&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;env&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;warden&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;].&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;user&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;ss&quot;&gt;:user&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+                     &lt;span class=&quot;no&quot;&gt;Flipper&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;enabled?&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;ss&quot;&gt;:media_uploads&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;current_user&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+                   &lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Source: https://twitter.com/carbon_noreply/status/1565244390666252288&lt;/p&gt;</content><author><name>wusher</name></author><category term="rails" /><category term="flipper" /></entry><entry><title type="html">Active Storage Variants Failing Locally</title><link href="https://wusher.github.io/notes/til/blog/2022/09/02/2022-09-02_active-storage-variants-failing-locally/" rel="alternate" type="text/html" title="Active Storage Variants Failing Locally" /><published>2022-09-02T09:01:01+00:00</published><updated>2022-09-02T09:01:01+00:00</updated><id>repo://posts.collection/_posts/2022-09-02_active-storage-variants-failing-locally.md</id><content type="html" xml:base="https://wusher.github.io/notes/til/blog/2022/09/02/2022-09-02_active-storage-variants-failing-locally/">&lt;h4 id=&quot;setup&quot;&gt;Setup&lt;/h4&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;ruby 3.0.4p208&lt;/li&gt;
+  &lt;li&gt;puma 5.6.1&lt;/li&gt;
+  &lt;li&gt;Rails 7.0.2&lt;/li&gt;
+  &lt;li&gt;macos 12.4 m1&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h4 id=&quot;issue&quot;&gt;Issue&lt;/h4&gt;
+
+&lt;p&gt;I kept getting broken images when generating variants locally. I found the error below in my rails logs.&lt;/p&gt;
+
+&lt;h4 id=&quot;error&quot;&gt;Error&lt;/h4&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;[__NSCFConstantString initialize] may have been in progress in another thread when fork() was called
+[__NSCFConstantString initialize] may have been in progress in another thread when fork() was called
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h4 id=&quot;fix&quot;&gt;Fix&lt;/h4&gt;
+
+&lt;p&gt;I had to add this to my &lt;code class=&quot;highlighter-rouge&quot;&gt;zshrc&lt;/code&gt; before I initialize &lt;code class=&quot;highlighter-rouge&quot;&gt;rbenv&lt;/code&gt;&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;export OBJC_DISABLE_INITIALIZE_FORK_SAFETY=YES
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;</content><author><name>wusher</name></author><category term="rails" /><category term="puma" /></entry><entry><title type="html">File Uploads Without Form Helpers</title><link href="https://wusher.github.io/notes/til/blog/2022/09/02/2022-09-02_file-uploads-without-form-helpers/" rel="alternate" type="text/html" title="File Uploads Without Form Helpers" /><published>2022-09-02T08:01:01+00:00</published><updated>2022-09-02T08:01:01+00:00</updated><id>repo://posts.collection/_posts/2022-09-02_file-uploads-without-form-helpers.md</id><content type="html" xml:base="https://wusher.github.io/notes/til/blog/2022/09/02/2022-09-02_file-uploads-without-form-helpers/">&lt;p&gt;When uploading files without using the form helper &lt;code class=&quot;highlighter-rouge&quot;&gt;form.file_field&lt;/code&gt;, you have to add the option &lt;code class=&quot;highlighter-rouge&quot;&gt;multipart: true&lt;/code&gt; to the form tag.&lt;/p&gt;
+
+&lt;p&gt;Discovered in &lt;a href=&quot;https://api.rubyonrails.org/classes/ActionView/Helpers/FormTagHelper.html#method-i-file_field_tag&quot;&gt;API Docs&lt;/a&gt;&lt;/p&gt;
+
+&lt;div class=&quot;language-erb highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;  &lt;span class=&quot;nt&quot;&gt;&amp;lt;&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;%=&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;form_with&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;model:&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;@&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;company&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;),&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;multipart:&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;true&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;do&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;|&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;form&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;|&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;%&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
+
+    -- When using:  --
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;input&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;type=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;file&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;name=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;company[logo]&quot;&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;/&amp;gt;&lt;/span&gt;
+    -- OR --
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;%=&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;file_field_tag&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;company&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;logo&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;]&quot;&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;%&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
+
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;%=&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;form.submit&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;%&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
+  &lt;span class=&quot;nt&quot;&gt;&amp;lt;&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;%&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;end&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;%&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;</content><author><name>wusher</name></author><category term="rails" /></entry><entry><title type="html">Unregister Service Workers</title><link href="https://wusher.github.io/notes/til/blog/2022/09/01/2022-09-01_unregistering-service-workers/" rel="alternate" type="text/html" title="Unregister Service Workers" /><published>2022-09-01T08:01:01+00:00</published><updated>2022-09-01T08:01:01+00:00</updated><id>repo://posts.collection/_posts/2022-09-01_unregistering-service-workers.md</id><content type="html" xml:base="https://wusher.github.io/notes/til/blog/2022/09/01/2022-09-01_unregistering-service-workers/">&lt;p&gt;A little bit of code to unregister all service workers:&lt;/p&gt;
+
+&lt;div class=&quot;language-javascript highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;navigator&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;serviceWorker&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;nb&quot;&gt;navigator&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;serviceWorker&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;getRegistrations&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;().&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;then&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;registrations&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;for&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kd&quot;&gt;let&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;registration&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;of&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;registrations&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+      &lt;span class=&quot;nx&quot;&gt;registration&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;unregister&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;();&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+  &lt;span class=&quot;p&quot;&gt;});&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;</content><author><name>wusher</name></author><category term="pwa" /><category term="js" /></entry><entry><title type="html">Uninstall All Bundled Gems</title><link href="https://wusher.github.io/notes/til/blog/2022/09/01/2022-09-01_uninstall-all-bundled-gems/" rel="alternate" type="text/html" title="Uninstall All Bundled Gems" /><published>2022-09-01T08:01:01+00:00</published><updated>2022-09-01T08:01:01+00:00</updated><id>repo://posts.collection/_posts/2022-09-01_uninstall-all-bundled-gems.md</id><content type="html" xml:base="https://wusher.github.io/notes/til/blog/2022/09/01/2022-09-01_uninstall-all-bundled-gems/">&lt;p&gt;I came across a quick way to delete all the gems installed through bundler. &lt;a href=&quot;https://stackoverflow.com/a/21385516/1632&quot;&gt;source&lt;/a&gt;&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;bundle list | ruby -e &apos;ARGF.readlines[1..-1].each {|l| g = l.split(&quot; &quot;);  puts &quot;Removing #{g[1]}&quot;; `gem uninstall --force #{g[1]} -v #{g[2].gsub(/\(|\)/, &quot;&quot;)}`; }&apos;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h4 id=&quot;line-by-line-version&quot;&gt;Line by line version&lt;/h4&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;bundle list 
+ruby -e &apos;
+  ARGF.readlines[1..-1].each {|l| g = l.split(&quot; &quot;)
+  puts &quot;Removing #{g[1]}&quot;
+  `gem uninstall --force #{g[1]} -v #{g[2].gsub(/\(|\)/, &quot;&quot;)}`
+}&apos;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;</content><author><name>wusher</name></author><category term="ruby" /><category term="bundler" /></entry><entry><title type="html">Signout Users</title><link href="https://wusher.github.io/notes/til/blog/2022/09/01/2022-09-01_signout-users/" rel="alternate" type="text/html" title="Signout Users" /><published>2022-09-01T08:01:01+00:00</published><updated>2022-09-01T08:01:01+00:00</updated><id>repo://posts.collection/_posts/2022-09-01_signout-users.md</id><content type="html" xml:base="https://wusher.github.io/notes/til/blog/2022/09/01/2022-09-01_signout-users/">&lt;p&gt;Code to logout deactivated users:&lt;/p&gt;
+
+&lt;div class=&quot;language-ruby highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;current_user&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;amp;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;deactivated_at&lt;/span&gt;
+  &lt;span class=&quot;n&quot;&gt;email&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;current_user&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;email&lt;/span&gt;
+  &lt;span class=&quot;n&quot;&gt;sign_out&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;current_user&lt;/span&gt;
+  &lt;span class=&quot;n&quot;&gt;redirect_to&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;root_path&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;alert: &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Your account has been deactivated. Account: &lt;/span&gt;&lt;span class=&quot;si&quot;&gt;#{&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;email&lt;/span&gt;&lt;span class=&quot;si&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt; &quot;&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;</content><author><name>wusher</name></author><category term="rails" /><category term="devise" /></entry><entry><title type="html">Inline Bundler Without Gemfile</title><link href="https://wusher.github.io/notes/til/blog/2022/09/01/2022-09-01_inline-bundler-without-gemfile/" rel="alternate" type="text/html" title="Inline Bundler Without Gemfile" /><published>2022-09-01T08:01:01+00:00</published><updated>2022-09-01T08:01:01+00:00</updated><id>repo://posts.collection/_posts/2022-09-01_inline-bundler-without-gemfile.md</id><content type="html" xml:base="https://wusher.github.io/notes/til/blog/2022/09/01/2022-09-01_inline-bundler-without-gemfile/">&lt;p&gt;For quick throwaway ruby scripts, you can add your gemfile inline. When you run the file, ruby will install your dependencies and then execute the script.&lt;/p&gt;
+
+&lt;h4 id=&quot;inline-bundler&quot;&gt;Inline bundler&lt;/h4&gt;
+
+&lt;div class=&quot;language-ruby highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c1&quot;&gt;# BEGIN inline bundler &lt;/span&gt;
+&lt;span class=&quot;nb&quot;&gt;require&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&apos;bundler/inline&apos;&lt;/span&gt;
+
+&lt;span class=&quot;n&quot;&gt;gemfile&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;do&lt;/span&gt;
+  &lt;span class=&quot;n&quot;&gt;source&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&apos;https://rubygems.org&apos;&lt;/span&gt;
+
+  &lt;span class=&quot;n&quot;&gt;gem&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&apos;httparty&apos;&lt;/span&gt;
+  &lt;span class=&quot;n&quot;&gt;gem&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&apos;pry&apos;&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;# END inline bundler &lt;/span&gt;
+
+&lt;span class=&quot;n&quot;&gt;resp&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;HTTParty&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;get&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;https://rubygems.org&quot;&lt;/span&gt;
+&lt;span class=&quot;nb&quot;&gt;binding&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;pry&lt;/span&gt; 
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h4 id=&quot;running&quot;&gt;Running&lt;/h4&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&amp;gt; ruby tmp.rb 
+
+From: /Users/user/code/tmp.rb:11 :
+
+     6:   gem &apos;httparty&apos;
+     7:   gem &apos;pry&apos;
+     8: end
+     9: 
+    10: resp = HTTParty.get &quot;https://rubygems.org&quot;
+ =&amp;gt; 11: binding.pry 
+
+[1] pry(main)&amp;gt; 
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;</content><author><name>wusher</name></author><category term="ruby" /></entry><entry><title type="html">Makefile Help</title><link href="https://wusher.github.io/notes/til/blog/2022/08/31/2022-08-31_makefile-help/" rel="alternate" type="text/html" title="Makefile Help" /><published>2022-08-31T08:01:01+00:00</published><updated>2022-08-31T08:01:01+00:00</updated><id>repo://posts.collection/_posts/2022-08-31_makefile-help.md</id><content type="html" xml:base="https://wusher.github.io/notes/til/blog/2022/08/31/2022-08-31_makefile-help/">&lt;p&gt;Not sure where I picked this up, but I always add a help command to my make files:&lt;/p&gt;
+
+&lt;h4 id=&quot;skeleton-file&quot;&gt;Skeleton File&lt;/h4&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;.PHONY: clean help lint setup start test
+
+help: ## shows the help
+	@grep -E &apos;^[a-zA-Z_-]+:.*?## .*$$&apos; $(MAKEFILE_LIST) | sort | awk &apos;BEGIN {FS = &quot;:.*?## &quot;}; {printf &quot;\033[36m%-30s\033[0m %s\n&quot;, $$1, $$2}&apos;
+
+clean: ## clean the project
+  echo TODO 
+
+lint: ## lint codebase
+  echo TODO 
+
+setup: ## install all deps and configure project
+  echo TODO 
+
+start: ## compile and run the server 
+  echo TODO 
+
+test: ## run the tests 
+  echo TODO 
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h4 id=&quot;output&quot;&gt;Output&lt;/h4&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&amp;gt; make 
+clean                          clean the project
+help                           shows the help
+lint                           lint codebase
+setup                          install all deps and configure project
+start                          compile and run the server 
+test                           run the tests 
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;</content><author><name>wusher</name></author><category term="makefile" /></entry><entry><title type="html">Capybara</title><link href="https://wusher.github.io/notes/cheatsheet/2022/08/08/0000-00-00_cheatsheet_capybara/" rel="alternate" type="text/html" title="Capybara" /><published>2022-08-08T08:01:01+00:00</published><updated>2022-08-08T08:01:01+00:00</updated><id>repo://posts.collection/_posts/0000-00-00_cheatsheet_capybara.md</id><content type="html" xml:base="https://wusher.github.io/notes/cheatsheet/2022/08/08/0000-00-00_cheatsheet_capybara/">&lt;p&gt;Capybara&lt;/p&gt;</content><author><name>wusher</name></author><category term="cheatsheet" /><category term="cheatsheet" /></entry></feed>
