@@ -20,4 +20,4 @@ resources :media,
                    end
 ```
 
-Source: https://twitter.com/carbon_noreply/status/1565244390666252288
+Source: [https://twitter.com/carbon_noreply/status/1565244390666252288](https://twitter.com/carbon_noreply/status/1565244390666252288)
