@@ -3,7 +3,7 @@ layout: post
 title:  "Feature Flags On Rails Routes"
 published: true
 date: 2022-09-04 01:01:01 -0700
-categories: til blog 
+
 tags: rails flipper
 ---
 

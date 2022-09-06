@@ -3,7 +3,7 @@ layout: post
 title:  "Uninstall All Bundled Gems"
 published: true
 date: 2022-09-01 01:01:01 -0700
-categories: til blog 
+
 tags: ruby bundler
 ---
 

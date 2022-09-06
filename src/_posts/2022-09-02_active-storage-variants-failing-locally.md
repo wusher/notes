@@ -3,7 +3,7 @@ layout: post
 title:  "Active Storage Variants Failing Locally"
 published: true
 date: 2022-09-02 02:01:01 -0700
-categories: til blog 
+
 tags: rails puma
 ---
 

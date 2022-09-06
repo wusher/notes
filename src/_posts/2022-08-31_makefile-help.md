@@ -2,7 +2,7 @@
 layout: post
 title:  "Makefile Help"
 date: 2022-08-31 01:01:01 -0700
-categories: til blog 
+
 tags: makefile
 ---
 
