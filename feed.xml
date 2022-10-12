@@ -1,4 +1,166 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://bridgetownrb.com/" version="1.1.0">Bridgetown</generator><link href="https://wusher.github.io/notes/feed.xml" rel="self" type="application/atom+xml" /><link href="https://wusher.github.io/notes/" rel="alternate" type="text/html" /><updated>2022-10-03T19:53:11+00:00</updated><id>https://wusher.github.io/notes/feed.xml</id><title type="html">My Notes</title><subtitle>My Notes</subtitle><author><name>wusher</name></author><entry><title type="html">Rails Generators And Active Storage</title><link href="https://wusher.github.io/notes/2022/10/03/2022-10-03_migrations-and-active-storage/" rel="alternate" type="text/html" title="Rails Generators And Active Storage" /><published>2022-10-03T08:01:01+00:00</published><updated>2022-10-03T08:01:01+00:00</updated><id>repo://posts.collection/_posts/2022-10-03_migrations-and-active-storage.md</id><content type="html" xml:base="https://wusher.github.io/notes/2022/10/03/2022-10-03_migrations-and-active-storage/">&lt;p&gt;Create a model with a &lt;code class=&quot;highlighter-rouge&quot;&gt;has_one_attached&lt;/code&gt;&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://bridgetownrb.com/" version="1.1.0">Bridgetown</generator><link href="https://wusher.github.io/notes/feed.xml" rel="self" type="application/atom+xml" /><link href="https://wusher.github.io/notes/" rel="alternate" type="text/html" /><updated>2022-10-12T18:57:44+00:00</updated><id>https://wusher.github.io/notes/feed.xml</id><title type="html">My Notes</title><subtitle>My Notes</subtitle><author><name>wusher</name></author><entry><title type="html">Rails Generate Help</title><link href="https://wusher.github.io/notes/cheatsheet/2022/10/12/0000-00-00_cheatsheet_rails-generate-help/" rel="alternate" type="text/html" title="Rails Generate   Help" /><published>2022-10-12T08:01:01+00:00</published><updated>2022-10-12T08:01:01+00:00</updated><id>repo://posts.collection/_posts/0000-00-00_cheatsheet_rails-generate---help.md</id><content type="html" xml:base="https://wusher.github.io/notes/cheatsheet/2022/10/12/0000-00-00_cheatsheet_rails-generate-help/">&lt;p&gt;Rails Generate   Help&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;Usage&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;rails&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;generate&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;GENERATOR&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;args&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;options&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;
+
+&lt;span class=&quot;n&quot;&gt;General&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;options&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;
+  &lt;span class=&quot;p&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;h&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[--&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;help&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;     &lt;span class=&quot;p&quot;&gt;#&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Print&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;generator&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&apos;s options and usage
+  -p, [--pretend]  # Run but do not make any changes
+  -f, [--force]    # Overwrite files that already exist
+  -s, [--skip]     # Skip files that already exist
+  -q, [--quiet]    # Suppress status output
+
+Please choose a generator below.
+
+Rails:
+  application_record
+  benchmark
+  channel
+  component
+  controller
+  generator
+  helper
+  integration_test
+  jbuilder
+  job
+  mailbox
+  mailer
+  migration
+  model
+  resource
+  responders_controller
+  scaffold
+  scaffold_controller
+  system_test
+  task
+
+ActiveRecord:
+  active_record:application_record
+  active_record:devise
+  active_record:multi_db
+
+Actor:
+  actor
+
+Annotate:
+  annotate:install
+
+Avo:
+  avo:action
+  avo:card:chartkick
+  avo:card:metric
+  avo:card:partial
+  avo:controller
+  avo:dashboard
+  avo:eject
+  avo:field
+  avo:filter
+  avo:install
+  avo:locales
+  avo:resource
+  avo:resource_tool
+  avo:tool
+  avo:version
+
+Bullet:
+  bullet:install
+
+Devise:
+  devise
+  devise:controllers
+  devise:i18n:locale
+  devise:i18n:views
+  devise:install
+  devise:views
+
+Erb:
+  erb:component
+
+Erd:
+  erd:install
+
+FactoryBot:
+  factory_bot:model
+
+Haml:
+  haml:component
+
+Locale:
+  locale:component
+
+MetaTags:
+  meta_tags:install
+
+Mongoid:
+  mongoid:devise
+
+Noticed:
+  noticed:delivery_method
+  noticed:model
+  noticed:notification
+
+Preview:
+  preview:component
+
+Pundit:
+  pundit:install
+  pundit:policy
+
+RackProfiler:
+  rack_profiler:install
+
+Responders:
+  responders:install
+
+Rspec:
+  rspec:channel
+  rspec:component
+  rspec:controller
+  rspec:feature
+  rspec:generator
+  rspec:helper
+  rspec:install
+  rspec:integration
+  rspec:job
+  rspec:mailbox
+  rspec:mailer
+  rspec:model
+  rspec:policy
+  rspec:request
+  rspec:scaffold
+  rspec:system
+  rspec:view
+
+Sidekiq:
+  sidekiq:job
+
+Slim:
+  slim:component
+
+Stimulus:
+  stimulus
+  stimulus:component
+
+Tailwindcss:
+  tailwindcss:component
+
+TestUnit:
+  test_unit:channel
+  test_unit:component
+  test_unit:controller
+  test_unit:generator
+  test_unit:helper
+  test_unit:install
+  test_unit:integration
+  test_unit:job
+  test_unit:mailbox
+  test_unit:mailer
+  test_unit:model
+  test_unit:plugin
+  test_unit:policy
+  test_unit:scaffold
+  test_unit:system
+
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;</content><author><name>wusher</name></author><category term="cheatsheet" /><category term="cheatsheet" /><category term="rails" /></entry><entry><title type="html">Rails Generators And Active Storage</title><link href="https://wusher.github.io/notes/2022/10/03/2022-10-03_migrations-and-active-storage/" rel="alternate" type="text/html" title="Rails Generators And Active Storage" /><published>2022-10-03T08:01:01+00:00</published><updated>2022-10-03T08:01:01+00:00</updated><id>repo://posts.collection/_posts/2022-10-03_migrations-and-active-storage.md</id><content type="html" xml:base="https://wusher.github.io/notes/2022/10/03/2022-10-03_migrations-and-active-storage/">&lt;p&gt;Create a model with a &lt;code class=&quot;highlighter-rouge&quot;&gt;has_one_attached&lt;/code&gt;&lt;/p&gt;
 
 &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;rails g model company logo:attachment 
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;</content><author><name>wusher</name></author><category term="rails" /><category term="activestorage" /></entry><entry><title type="html">Custom Validation Method</title><link href="https://wusher.github.io/notes/2022/09/06/2022-09-06_custom-validation-method/" rel="alternate" type="text/html" title="Custom Validation Method" /><published>2022-09-06T08:01:01+00:00</published><updated>2022-09-06T08:01:01+00:00</updated><id>repo://posts.collection/_posts/2022-09-06_custom-validation-method.md</id><content type="html" xml:base="https://wusher.github.io/notes/2022/09/06/2022-09-06_custom-validation-method/">&lt;p&gt;Important: when using a custom validation method, use the method &lt;code class=&quot;highlighter-rouge&quot;&gt;validate&lt;/code&gt; and not &lt;code class=&quot;highlighter-rouge&quot;&gt;validates&lt;/code&gt;&lt;/p&gt;
@@ -121,38 +283,4 @@ From: /Users/user/code/tmp.rb:11 :
  =&amp;gt; 11: binding.pry 
 
 [1] pry(main)&amp;gt; 
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;</content><author><name>wusher</name></author><category term="ruby" /></entry><entry><title type="html">Makefile Help</title><link href="https://wusher.github.io/notes/2022/08/31/2022-08-31_makefile-help/" rel="alternate" type="text/html" title="Makefile Help" /><published>2022-08-31T08:01:01+00:00</published><updated>2022-08-31T08:01:01+00:00</updated><id>repo://posts.collection/_posts/2022-08-31_makefile-help.md</id><content type="html" xml:base="https://wusher.github.io/notes/2022/08/31/2022-08-31_makefile-help/">&lt;p&gt;Not sure where I picked this up, but I always add a help command to my make files:&lt;/p&gt;
-
-&lt;h4 id=&quot;skeleton-file&quot;&gt;Skeleton File&lt;/h4&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;.PHONY: clean help lint setup start test
-
-help: ## shows the help
-	@grep -E &apos;^[a-zA-Z_-]+:.*?## .*$$&apos; $(MAKEFILE_LIST) | sort | awk &apos;BEGIN {FS = &quot;:.*?## &quot;}; {printf &quot;\033[36m%-30s\033[0m %s\n&quot;, $$1, $$2}&apos;
-
-clean: ## clean the project
-  echo TODO 
-
-lint: ## lint codebase
-  echo TODO 
-
-setup: ## install all deps and configure project
-  echo TODO 
-
-start: ## compile and run the server 
-  echo TODO 
-
-test: ## run the tests 
-  echo TODO 
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;h4 id=&quot;output&quot;&gt;Output&lt;/h4&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&amp;gt; make 
-clean                          clean the project
-help                           shows the help
-lint                           lint codebase
-setup                          install all deps and configure project
-start                          compile and run the server 
-test                           run the tests 
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;</content><author><name>wusher</name></author><category term="makefile" /></entry></feed>
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;</content><author><name>wusher</name></author><category term="ruby" /></entry></feed>
