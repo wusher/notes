@@ -1,4 +1,6 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://bridgetownrb.com/" version="1.1.0">Bridgetown</generator><link href="https://wusher.github.io/notes/feed.xml" rel="self" type="application/atom+xml" /><link href="https://wusher.github.io/notes/" rel="alternate" type="text/html" /><updated>2022-10-12T18:57:44+00:00</updated><id>https://wusher.github.io/notes/feed.xml</id><title type="html">My Notes</title><subtitle>My Notes</subtitle><author><name>wusher</name></author><entry><title type="html">Rails Generate Help</title><link href="https://wusher.github.io/notes/cheatsheet/2022/10/12/0000-00-00_cheatsheet_rails-generate-help/" rel="alternate" type="text/html" title="Rails Generate   Help" /><published>2022-10-12T08:01:01+00:00</published><updated>2022-10-12T08:01:01+00:00</updated><id>repo://posts.collection/_posts/0000-00-00_cheatsheet_rails-generate---help.md</id><content type="html" xml:base="https://wusher.github.io/notes/cheatsheet/2022/10/12/0000-00-00_cheatsheet_rails-generate-help/">&lt;p&gt;Rails Generate   Help&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://bridgetownrb.com/" version="1.1.0">Bridgetown</generator><link href="https://wusher.github.io/notes/feed.xml" rel="self" type="application/atom+xml" /><link href="https://wusher.github.io/notes/" rel="alternate" type="text/html" /><updated>2022-10-18T22:27:59+00:00</updated><id>https://wusher.github.io/notes/feed.xml</id><title type="html">My Notes</title><subtitle>My Notes</subtitle><author><name>wusher</name></author><entry><title type="html">Query Objects At Thoughtbot</title><link href="https://wusher.github.io/notes/2022/10/18/2022-10-18_query-objects-at-thoughtbot/" rel="alternate" type="text/html" title="Query Objects At Thoughtbot" /><published>2022-10-18T08:01:01+00:00</published><updated>2022-10-18T08:01:01+00:00</updated><id>repo://posts.collection/_posts/2022-10-18_query-objects-at-thoughtbot.md</id><content type="html" xml:base="https://wusher.github.io/notes/2022/10/18/2022-10-18_query-objects-at-thoughtbot/">&lt;p&gt;Thoughtbot posted a good breakdown of query objects and how to better structure them: &lt;a href=&quot;https://thoughtbot.com/blog/a-case-for-query-objects-in-rails&quot;&gt;https://thoughtbot.com/blog/a-case-for-query-objects-in-rails&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;Source: &lt;a href=&quot;https://www.bikeshed.fm/358&quot;&gt;The Bike Shed: 358 Class Methods&lt;/a&gt;&lt;/p&gt;</content><author><name>wusher</name></author><category term="rails" /><category term="design_patterns" /></entry><entry><title type="html">Rails Generate Help</title><link href="https://wusher.github.io/notes/cheatsheet/2022/10/12/0000-00-00_cheatsheet_rails-generate-help/" rel="alternate" type="text/html" title="Rails Generate   Help" /><published>2022-10-12T08:01:01+00:00</published><updated>2022-10-12T08:01:01+00:00</updated><id>repo://posts.collection/_posts/0000-00-00_cheatsheet_rails-generate---help.md</id><content type="html" xml:base="https://wusher.github.io/notes/cheatsheet/2022/10/12/0000-00-00_cheatsheet_rails-generate-help/">&lt;p&gt;Rails Generate   Help&lt;/p&gt;
 
 &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;Usage&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;rails&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;generate&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;GENERATOR&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;args&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;options&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;
 
@@ -250,37 +252,4 @@ ruby -e &apos;
   &lt;span class=&quot;n&quot;&gt;sign_out&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;current_user&lt;/span&gt;
   &lt;span class=&quot;n&quot;&gt;redirect_to&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;root_path&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;alert: &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Your account has been deactivated. Account: &lt;/span&gt;&lt;span class=&quot;si&quot;&gt;#{&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;email&lt;/span&gt;&lt;span class=&quot;si&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt; &quot;&lt;/span&gt;
 &lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;</content><author><name>wusher</name></author><category term="rails" /><category term="devise" /></entry><entry><title type="html">Inline Bundler Without Gemfile</title><link href="https://wusher.github.io/notes/2022/09/01/2022-09-01_inline-bundler-without-gemfile/" rel="alternate" type="text/html" title="Inline Bundler Without Gemfile" /><published>2022-09-01T08:01:01+00:00</published><updated>2022-09-01T08:01:01+00:00</updated><id>repo://posts.collection/_posts/2022-09-01_inline-bundler-without-gemfile.md</id><content type="html" xml:base="https://wusher.github.io/notes/2022/09/01/2022-09-01_inline-bundler-without-gemfile/">&lt;p&gt;For quick throwaway ruby scripts, you can add your gemfile inline. When you run the file, ruby will install your dependencies and then execute the script.&lt;/p&gt;
-
-&lt;h4 id=&quot;inline-bundler&quot;&gt;Inline bundler&lt;/h4&gt;
-
-&lt;div class=&quot;language-ruby highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c1&quot;&gt;# BEGIN inline bundler &lt;/span&gt;
-&lt;span class=&quot;nb&quot;&gt;require&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&apos;bundler/inline&apos;&lt;/span&gt;
-
-&lt;span class=&quot;n&quot;&gt;gemfile&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;do&lt;/span&gt;
-  &lt;span class=&quot;n&quot;&gt;source&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&apos;https://rubygems.org&apos;&lt;/span&gt;
-
-  &lt;span class=&quot;n&quot;&gt;gem&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&apos;httparty&apos;&lt;/span&gt;
-  &lt;span class=&quot;n&quot;&gt;gem&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&apos;pry&apos;&lt;/span&gt;
-&lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
-&lt;span class=&quot;c1&quot;&gt;# END inline bundler &lt;/span&gt;
-
-&lt;span class=&quot;n&quot;&gt;resp&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;HTTParty&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;get&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;https://rubygems.org&quot;&lt;/span&gt;
-&lt;span class=&quot;nb&quot;&gt;binding&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;pry&lt;/span&gt; 
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;h4 id=&quot;running&quot;&gt;Running&lt;/h4&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&amp;gt; ruby tmp.rb 
-
-From: /Users/user/code/tmp.rb:11 :
-
-     6:   gem &apos;httparty&apos;
-     7:   gem &apos;pry&apos;
-     8: end
-     9: 
-    10: resp = HTTParty.get &quot;https://rubygems.org&quot;
- =&amp;gt; 11: binding.pry 
-
-[1] pry(main)&amp;gt; 
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;</content><author><name>wusher</name></author><category term="ruby" /></entry></feed>
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;</content><author><name>wusher</name></author><category term="rails" /><category term="devise" /></entry></feed>
